@@ -1,4 +1,41 @@
-<%= form_tag "show" do %>
+<%= form_tag  do %>
   用户: <%= text_field_tag :userid %><br />
+  密码: <%= text_field_tag :password %> <br />
   <%= submit_tag "提交" %>
+<% end %>
+<% if @users.nil? %>
+<span>users is null</span>
+<% else %>
+<table border="1">
+  <thead>
+    <tr>
+      <td>userid</td>
+      <td>password</td>
+      <td>name</td>
+      <td>idcard</td>
+      <td>sex</td>
+      <td>birthday</td>
+      <td>email</td>
+      <td>address</td>
+      <td>tel</td>
+      <td>mobile</td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |u| %>
+    <tr>
+      <td><%= u.userid %></td>
+      <td><%= u.password %></td>
+      <td><%= u.name %></td>
+      <td><%= u.idcard %></td>
+      <td><%= u.sex %></td>
+      <td><%= u.birthday %></td>
+      <td><%= u.email %></td>
+      <td><%= u.address %></td>
+      <td><%= u.tel %></td>
+      <td><%= u.mobile %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 <% end %>
